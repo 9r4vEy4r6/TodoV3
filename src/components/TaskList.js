@@ -1,23 +1,27 @@
 import React, {useState, useEffect} from 'react';
+import TaskItemWidget from './TaskItemWidget';
 
 const TaskList = () => {
 
-    const [list, setList] = useState(null);
+    const [list, setList] = useState([]);
+
     useEffect(()=>{
         fetch("http://localhost:8000/todo/tasks")
         .then(res => res.json())
         .then(result => {
-            setList(result);
+            const res = result;
+            setList(res);
         })
         .catch(err=>{
             console.log(err);
         });
     },[]);
-    
-    if(list){
+
+    if(list.length>0){
+        const listitems = list.map(item=> <TaskItemWidget  key={item.id} data={item} />);
         return(
             <div className="task-list-main">
-                Hello
+                {[listitems]}
             </div>
         );
     }

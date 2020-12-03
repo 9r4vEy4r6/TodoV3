@@ -1,11 +1,12 @@
 import React from 'react';
+import '../css/Form.css';
 
 const TaskItemForm = (props) =>{
     return(
         <div className="task-item-form">
             <hr />
-            <button onClick={props.removeFunc}>Remove</button>
-            {props.name}
+            <button className="remove-button" onClick={props.removeFunc}>Remove</button>
+            <div className="task-name">{props.task.name}</div>
         </div>
     );
 }

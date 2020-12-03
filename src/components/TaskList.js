@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TaskItemWidget from './TaskItemWidget';
 
-const TaskList = () => {
+const TaskList = (props) => {
 
     const [list, setList] = useState([]);
 
@@ -18,7 +18,7 @@ const TaskList = () => {
     },[]);
 
     if(list.length>0){
-        const listitems = list.map(item=> <TaskItemWidget  key={item.id} data={item} />);
+        const listitems = list.map(item=> <TaskItemWidget  key={item.id} data={item} formFunc={props.func} />);
         return(
             <div className="task-list-main">
                 {[listitems]}

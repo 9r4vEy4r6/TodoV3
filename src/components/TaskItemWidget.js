@@ -1,18 +1,10 @@
-import React,{useState} from 'react';
-import TaskItemForm from './TaskItemForm';
+import React from 'react';
 
 const TaskItemWidget = (props) =>{
 
-    const [form,setForm] = useState(null);
-
-    const renderform = (str) =>{
-        setForm(<TaskItemForm name={str} />)
-        console.log("fired");
-    }
-
     return (
         <div className="task-widget-card">
-            <button className="task-widget-head" onClick={()=> renderform(props.data.name)}>
+            <button className="task-widget-head" onClick={()=> props.formFunc(props.data.name)}>
                 {props.data.name}
             </button> 
         </div>

@@ -6,8 +6,8 @@ const MainComponent = (props) =>
 {
     const [form,setForm] = useState(null);
 
-    const addForm = () =>{
-        setForm(<TaskItemForm/>);
+    const addForm = (name) =>{
+        setForm(<TaskItemForm name={name} removeFunc={removeForm} />);
     }
 
     const removeForm = () =>{
@@ -16,7 +16,7 @@ const MainComponent = (props) =>
 
     return (
         <div className="main-component">
-            <TaskList func1={addForm} func2={removeForm} />
+            <TaskList func={addForm} />
             {form?form:""}
         </div>
     );

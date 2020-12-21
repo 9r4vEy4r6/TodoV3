@@ -17,19 +17,25 @@ const TaskItemForm = (props) =>{
     };
 
     return(
-        <div className="task-item-form">
+        <div className="task-item-form input-group">
+            
+            <div className="holder rem-holder text-right">
+                <button className="remove-button btn btn-danger" onClick={props.removeFunc}>X</button>
+            </div>
             <hr />
-            <button className="remove-button" onClick={props.removeFunc}>Remove</button>
-            <form onSubmit={handleSubmit(submitForm)}>
-                <input type="text" className="task-name"  ref={register} name="name"></input>
-                <input type="text" className="task-description" ref={register} name="description"></input>
-                <select type="select" name="priority" ref={register}>
+            <form onSubmit={handleSubmit(submitForm)} className="">
+                <input type="text" className="task-name form-control"  ref={register} name="name"></input>
+                <textarea className="task-description form-control" ref={register} name="description" ></textarea>
+                <select type="select" name="priority" className="form-control" ref={register}>
                     <option value="1">High</option>
                     <option value="2">Medium</option>
                     <option value="3">Low</option>
                 </select>
-                <input type="submit"></input>
+                <div className="holder save-holder text-center">
+                    <input class="btn btn-success save-button" type="submit" value="Save Task"></input>
+                </div>
             </form>
+            <hr />
         </div>
     );
 }

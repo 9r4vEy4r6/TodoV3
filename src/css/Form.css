@@ -1,0 +1,16 @@
+.task-item-form .form-control
+{
+    margin-top : 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.task-item-form{
+    padding : 20px;
+    width : 33%;
+    border : 6px solid rgb(105, 85, 197);
+    border-radius: 7px;
+}
+
+.remove-button{
+    border-radius: 50%;
+}

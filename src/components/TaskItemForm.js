@@ -47,7 +47,7 @@ const TaskItemForm = (props) =>{
             <hr />
             <form onSubmit={handleSubmit(submitForm)}>
                 <input type="text" className="task-name form-control"  ref={register} name="name"></input>
-                <textarea className="task-description form-control" ref={register} name="description" ></textarea>
+                <textarea className="task-description form-control" ref={register} name="description" rows="15" ></textarea>
                 <select type="select" name="priority" className="form-control" ref={register}>
                     <option value="1">High</option>
                     <option value="2">Medium</option>

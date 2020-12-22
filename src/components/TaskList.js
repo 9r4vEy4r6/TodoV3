@@ -14,8 +14,8 @@ const TaskList = (props) => {
         })
         .catch(err=>{
             console.log(err);
-        });
-    });
+        }); 
+    }, []);
 
     if(list.length>0){
         const listitems = list.map(item=> <TaskItemWidget  key={item.id} data={item} formFunc={props.func} />);

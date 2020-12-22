@@ -1,0 +1,30 @@
+.task-widget-head{
+    font-size: 30px;
+    font-family: fantasy;
+}
+
+.check{
+    margin-right: 20px;
+}
+
+.task-widget-card {
+    display: flex;
+    align-content: center;
+    border : 3px solid;
+    margin : 1rem;
+    border-radius: 3px;
+    padding : 2px;
+}
+
+.task-widget-card-block{
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    border : 3px solid;
+    padding : 2.5rem;
+}
+.task-widget-card:hover{
+    transform: scale(1.02);
+    transition: 0.5s;
+}

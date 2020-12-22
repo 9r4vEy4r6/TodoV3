@@ -4,17 +4,17 @@ import '../css/Widget.css';
 const TaskItemWidget = (props) =>{
 
     const [tick,setTick] = useState(false);
-    const [color, setColor] = useState(["#22af00","#41d81d","#f00000","#d01d1d","#c9a800","#e5ef00"]);
+    const color = ["#22af00","#41d81d","#f00000","#d01d1d","#c9a800","#e5ef00"];
 
-    var outerStyle = {
+    const [outerStyle, setOuter] = useState({
         backgroundColor : color[1],
         borderColor : color[0],
-    }
+    });
 
-    var innerStyle = {
+    const [innerStyle, setInner] = useState({
         borderColor : color[0],
         backgroundColor : "#fff"
-    }
+    });
 
     useEffect( ()=> {
         fetch("http://localhost:8000/todo/task/"+props.data.id)
@@ -22,6 +22,42 @@ const TaskItemWidget = (props) =>{
         .then(res => {
             const result = res;
             setTick(result.isComplete);
+            if(res.priority===1)
+            {
+                setOuter({
+                    backgroundColor : color[3],
+                    borderColor : color[2],
+                })
+            
+                setInner({
+                    borderColor : color[2],
+                    backgroundColor : "#fff"
+                })
+            }
+            else if(res.priority===2)
+            {
+                setOuter({
+                    backgroundColor : color[5],
+                    borderColor : color[4],
+                })
+            
+                setInner({
+                    borderColor : color[4],
+                    backgroundColor : "#fff"
+                })
+            }
+            else
+            {
+                setOuter({
+                    backgroundColor : color[1],
+                    borderColor : color[0],
+                })
+            
+                setInner({
+                    borderColor : color[0],
+                    backgroundColor : "#fff"
+                })
+            }
         })
         .catch(err => {
             console.log(err);

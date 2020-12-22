@@ -9,6 +9,7 @@ const TaskItemForm = (props) =>{
     useEffect( ()=> {
         setValue("name", props.task.name);
         setValue("description", props.task.description);
+        setValue("priority", props.task.priority);
     });
 
     const submitForm = (data) => {
@@ -32,6 +33,8 @@ const TaskItemForm = (props) =>{
             setValue("name", data["name"]);
             setValue("description", data["description"]);
             setValue("priority", data["priority"]);
+            //props.reloadRef.current.reloadList();
+            //console.log("called in form");
         })
         .catch(err => {
             console.log("Error!");
@@ -39,25 +42,26 @@ const TaskItemForm = (props) =>{
     };
 
     return(
-        <div className="task-item-form input-group">
-            
-            <div className="holder rem-holder text-right">
-                <button className="remove-button btn btn-danger" onClick={props.removeFunc}>X</button>
-            </div>
-            <hr />
-            <form onSubmit={handleSubmit(submitForm)}>
-                <input type="text" className="task-name form-control"  ref={register} name="name"></input>
-                <textarea className="task-description form-control" ref={register} name="description" rows="15" ></textarea>
-                <select type="select" name="priority" className="form-control" ref={register}>
-                    <option value="1">High</option>
-                    <option value="2">Medium</option>
-                    <option value="3">Low</option>
-                </select>
-                <div className="holder save-holder text-center">
-                    <input className="btn btn-success save-button" type="submit" value="Save Task"></input>
+        <div className="col-lg-6 col-md-12">
+            <div className = "task-item-form input-group">
+                <div className="holder rem-holder text-right">
+                    <button className="remove-button btn btn-danger" onClick={props.removeFunc}>X</button>
                 </div>
-            </form>
-            <hr />
+                <hr />
+                <form onSubmit={handleSubmit(submitForm)}>
+                    <input type="text" className="task-name form-control"  ref={register} name="name"></input>
+                    <textarea className="task-description form-control" ref={register} name="description" rows="15" ></textarea>
+                    <select type="select" name="priority" className="form-control" ref={register}>
+                        <option value="1">High</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Low</option>
+                    </select>
+                    <div className="holder save-holder text-center">
+                        <input className="btn btn-success save-button" type="submit" value="Save Task"></input>
+                    </div>
+                </form>
+                <hr />
+            </div>
         </div>
     );
 }

@@ -15,7 +15,7 @@ const MainComponent = (props) =>
     }
 
     return (
-        <div className="main-component">
+        <div className="main-component row">
             <TaskList func={addForm} />
             {form?form:""}
         </div>

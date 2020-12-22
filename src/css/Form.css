@@ -5,8 +5,8 @@
 }
 
 .task-item-form{
-    padding : 20px;
-    width : 33%;
+    margin : 5%;
+    padding : 2.5%;
     border : 6px solid rgb(105, 85, 197);
     border-radius: 7px;
 }

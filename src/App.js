@@ -1,4 +1,3 @@
-import TaskList from './components/TaskList';
 import './css/App.css';
 import MainComponent from './components/MainComponent';
 

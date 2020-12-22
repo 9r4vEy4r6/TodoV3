@@ -13,7 +13,29 @@ const TaskItemForm = (props) =>{
 
     const submitForm = (data) => {
         data["isComplete"] = false;
-        console.log(data);
+        //console.log(data);
+
+        var formData = JSON.stringify(data);
+        var requestOptions = {
+            method : 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body : formData,
+            redirect : 'follow'
+        }
+
+        fetch("http://localhost:8000/todo/task/"+props.task.id, requestOptions)
+        .then(res => res.json())
+        .then(res => {
+            //console.log(res);
+            setValue("name", data["name"]);
+            setValue("description", data["description"]);
+            setValue("priority", data["priority"]);
+        })
+        .catch(err => {
+            console.log("Error!");
+        })
     };
 
     return(
@@ -23,7 +45,7 @@ const TaskItemForm = (props) =>{
                 <button className="remove-button btn btn-danger" onClick={props.removeFunc}>X</button>
             </div>
             <hr />
-            <form onSubmit={handleSubmit(submitForm)} className="">
+            <form onSubmit={handleSubmit(submitForm)}>
                 <input type="text" className="task-name form-control"  ref={register} name="name"></input>
                 <textarea className="task-description form-control" ref={register} name="description" ></textarea>
                 <select type="select" name="priority" className="form-control" ref={register}>
@@ -32,7 +54,7 @@ const TaskItemForm = (props) =>{
                     <option value="3">Low</option>
                 </select>
                 <div className="holder save-holder text-center">
-                    <input class="btn btn-success save-button" type="submit" value="Save Task"></input>
+                    <input className="btn btn-success save-button" type="submit" value="Save Task"></input>
                 </div>
             </form>
             <hr />

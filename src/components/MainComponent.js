@@ -1,6 +1,7 @@
 import React,{useRef, useState} from 'react';
 import TaskList from './TaskList';
 import TaskItemForm from './TaskItemForm';
+import NewItemForm from './NewItemForm';
 
 const MainComponent = (props) =>
 {
@@ -19,6 +20,7 @@ const MainComponent = (props) =>
         <div className="main-component row">
             <TaskList func={addForm} ref={listRef} />
             {form?form:""}
+            <NewItemForm listRef={listRef} />
         </div>
     );
 }

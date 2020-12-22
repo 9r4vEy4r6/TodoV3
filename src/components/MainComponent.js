@@ -1,13 +1,14 @@
-import React,{useState} from 'react';
+import React,{useRef, useState} from 'react';
 import TaskList from './TaskList';
 import TaskItemForm from './TaskItemForm';
 
 const MainComponent = (props) =>
 {
     const [form,setForm] = useState(null);
+    const listRef = useRef();
 
     const addForm = (data) =>{
-        setForm(<TaskItemForm task={data} removeFunc={removeForm} />);
+        setForm(<TaskItemForm task={data} removeFunc={removeForm} listRef={listRef} />);
     }
 
     const removeForm = () =>{
@@ -16,7 +17,7 @@ const MainComponent = (props) =>
 
     return (
         <div className="main-component row">
-            <TaskList func={addForm} />
+            <TaskList func={addForm} ref={listRef} />
             {form?form:""}
         </div>
     );

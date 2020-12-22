@@ -33,7 +33,7 @@ const TaskItemForm = (props) =>{
             setValue("name", data["name"]);
             setValue("description", data["description"]);
             setValue("priority", data["priority"]);
-            //props.reloadRef.current.reloadList();
+            props.listRef.current.reload();
             //console.log("called in form");
         })
         .catch(err => {

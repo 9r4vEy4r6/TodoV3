@@ -1,11 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, forwardRef, useImperativeHandle} from 'react';
 import TaskItemWidget from './TaskItemWidget';
 
 import '../css/List.css';
 
-const TaskList = (props) => {
+const TaskList = (props, ref) => {
 
     const [list, setList] = useState([]);
+    const [count, setCount] = useState(0);
+
+    useImperativeHandle(ref, ()=> ({
+
+        reload() {
+            setCount(count+1);
+            setList([]);
+        }
+
+    }));
 
     useEffect(()=>{
         fetch("http://localhost:8000/todo/tasks")
@@ -17,7 +27,7 @@ const TaskList = (props) => {
         .catch(err=>{
             console.log(err);
         }); 
-    }, []);
+    }, [count]);
 
     if(list.length>0){
         const listitems = list.map(item=> <TaskItemWidget  key={item.id} data={item} formFunc={props.func} />);
@@ -37,4 +47,4 @@ const TaskList = (props) => {
     }
 }
 
-export default TaskList;
+export default forwardRef(TaskList);

@@ -17,51 +17,90 @@ const TaskItemWidget = (props) =>{
     });
 
     useEffect( ()=> {
-        fetch("http://localhost:8000/todo/task/"+props.data.id)
-        .then(res => res.json())
-        .then(res => {
-            const result = res;
-            setTick(result.isComplete);
-            if(res.priority===1)
-            {
-                setOuter({
-                    backgroundColor : color[3],
-                    borderColor : color[2],
-                })
+        // fetch("http://localhost:8000/todo/task/"+props.data.id)
+        // .then(res => res.json())
+        // .then(res => {
+        //     const result = res;
+        //     setTick(result.isComplete);
+        //     if(res.priority===1)
+        //     {
+        //         setOuter({
+        //             backgroundColor : color[3],
+        //             borderColor : color[2],
+        //         })
             
-                setInner({
-                    borderColor : color[2],
-                    backgroundColor : "#fff"
-                })
-            }
-            else if(res.priority===2)
-            {
-                setOuter({
-                    backgroundColor : color[5],
-                    borderColor : color[4],
-                })
+        //         setInner({
+        //             borderColor : color[2],
+        //             backgroundColor : "#fff"
+        //         })
+        //     }
+        //     else if(res.priority===2)
+        //     {
+        //         setOuter({
+        //             backgroundColor : color[5],
+        //             borderColor : color[4],
+        //         })
             
-                setInner({
-                    borderColor : color[4],
-                    backgroundColor : "#fff"
-                })
-            }
-            else
-            {
-                setOuter({
-                    backgroundColor : color[1],
-                    borderColor : color[0],
-                })
+        //         setInner({
+        //             borderColor : color[4],
+        //             backgroundColor : "#fff"
+        //         })
+        //     }
+        //     else
+        //     {
+        //         setOuter({
+        //             backgroundColor : color[1],
+        //             borderColor : color[0],
+        //         })
             
-                setInner({
-                    borderColor : color[0],
-                    backgroundColor : "#fff"
-                })
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        //         setInner({
+        //             borderColor : color[0],
+        //             backgroundColor : "#fff"
+        //         })
+        //     }
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // })
+
+        const res = props.data;
+        setTick(res.isComplete);
+        if(res.priority===1)
+        {
+            setOuter({
+                backgroundColor : color[3],
+                borderColor : color[2],
+            })
+        
+            setInner({
+                borderColor : color[2],
+                backgroundColor : "#fff"
+            })
+        }
+        else if(res.priority===2)
+        {
+            setOuter({
+                backgroundColor : color[5],
+                borderColor : color[4],
+            })
+        
+            setInner({
+                borderColor : color[4],
+                backgroundColor : "#fff"
+            })
+        }
+        else
+        {
+            setOuter({
+                backgroundColor : color[1],
+                borderColor : color[0],
+            })
+        
+            setInner({
+                borderColor : color[0],
+                backgroundColor : "#fff"
+            })
+        }
     }, []);
 
     const handleTick = (id) => {

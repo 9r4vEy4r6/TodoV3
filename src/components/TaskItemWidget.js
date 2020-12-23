@@ -140,7 +140,7 @@ const TaskItemWidget = (props) =>{
     }
 
     return (
-        <div className="task-widget-card" style={outerStyle}>
+        <div className={tick?"task-widget-card task-widget-card-inactive":"task-widget-card"} style={outerStyle}>
             <div className="check">
                 <span>
                 <input className="task-completed" type="checkbox" checked={tick} onChange={handleTick} />

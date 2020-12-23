@@ -17,6 +17,10 @@
     cursor: pointer;
 }
 
+.task-widget-card-inactive{
+    opacity: 0.3;
+}
+
 .task-widget-card-block{
     border-radius: 0px 10px 50px 0px;
     display: flex;

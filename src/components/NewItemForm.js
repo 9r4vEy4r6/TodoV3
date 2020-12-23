@@ -36,7 +36,7 @@ const NewItemForm = (props) =>{
     };
 
     return(
-        <div className="col-lg-6 col-md-12">
+        <div className="form-main col-lg-6 col-md-12">
             <div className = "task-item-form input-group">
                 <div className="holder rem-holder text-right">
                     <button className="remove-button btn btn-danger" onClick={props.removeFunc}>X</button>

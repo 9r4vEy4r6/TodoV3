@@ -4,6 +4,8 @@ import TaskItemForm from './TaskItemForm';
 import NewItemForm from './NewItemForm';
 import Navbar from './Navbar';
 
+import '../css/MainComponent.css'
+
 const MainComponent = (props) =>
 {
     const [form,setForm] = useState(null);
@@ -24,9 +26,11 @@ const MainComponent = (props) =>
     return (
         <div class="main">
             <Navbar add={addEmptyForm}/>
-            <div className="main-component row">
-                <TaskList func={addForm} ref={listRef} />
-                {form?form:""}
+            <div className="main-component">
+                <div className="row">
+                    <TaskList func={addForm} ref={listRef} />
+                    {form?form:""}
+                </div>
             </div>
         </div>
     );

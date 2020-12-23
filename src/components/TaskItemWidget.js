@@ -4,7 +4,7 @@ import '../css/Widget.css';
 const TaskItemWidget = (props) =>{
 
     const [tick,setTick] = useState(false);
-    const color = ["#22af00","#41d81d","#f00000","#d01d1d","#c9a800","#e5ef00"];
+    const color = ["#22af00","#41d81d","#f00000","#d01d1d","#c9a800","#e5ef00","#939083","#abaaa1","#adadad"];
 
     const [outerStyle, setOuter] = useState({
         backgroundColor : color[1],
@@ -65,6 +65,10 @@ const TaskItemWidget = (props) =>{
 
         const res = props.data;
         setTick(res.isComplete);
+        setColors(res);
+    }, []);
+
+    const setColors = (res) => {
         if(res.priority===1)
         {
             setOuter({
@@ -101,7 +105,7 @@ const TaskItemWidget = (props) =>{
                 backgroundColor : "#fff"
             })
         }
-    }, []);
+    }
 
     const handleTick = (id) => {
         if(tick){
@@ -109,6 +113,7 @@ const TaskItemWidget = (props) =>{
             .then(res => res.json())
             .then(result =>{
                 setTick(false);
+                setColors(props.data);
             })
             .catch(err => {
                 console.log(err);
@@ -119,6 +124,14 @@ const TaskItemWidget = (props) =>{
             .then(res => res.json())
             .then(result =>{
                 setTick(true);
+                setOuter({
+                    backgroundColor : color[7],
+                    borderColor : color[6],
+                });
+                setInner({
+                    borderColor : color[6],
+                    backgroundColor : color[8]
+                });
             })
             .catch(err => {
                 console.log(err);
@@ -128,13 +141,13 @@ const TaskItemWidget = (props) =>{
 
     return (
         <div className="task-widget-card" style={outerStyle}>
-            <div className="task-widget-card-block" style={innerStyle}>
-                <div className="check">
-                    <span>
-                    <input className="task-completed" type="checkbox" checked={tick} onChange={handleTick} />
-                    </span>
-                </div>
-                <div className="task-widget-head" onClick={()=> props.formFunc(props.data)}>
+            <div className="check">
+                <span>
+                <input className="task-completed" type="checkbox" checked={tick} onChange={handleTick} />
+                </span>
+            </div>
+            <div className="task-widget-card-block" style={innerStyle} onClick={()=> tick?null:props.formFunc(props.data)}>
+                <div className="task-widget-head">
                     <strong>{props.data.name}</strong>
                 </div> 
             </div>

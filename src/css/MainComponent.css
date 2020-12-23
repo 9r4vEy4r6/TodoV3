@@ -1,0 +1,12 @@
+.main{
+    display: absolute;
+    max-height : 100%;
+}
+
+.main-component{
+    position: absolute;
+    max-height : 90vw;
+    width: 100%;
+    padding-left : 2.5%;
+    padding-right: 1%;
+}

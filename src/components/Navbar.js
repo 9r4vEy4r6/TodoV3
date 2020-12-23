@@ -1,11 +1,23 @@
 import React from 'react';
+import '../css/Nav.css';
 
 const Navbar = (props) => {
 
     return(
-        <nav className="navbar sticky-top navbar-dark bg-primary">
-            <a href="#" className="nav-link" onClick={props.add}>Add a task!</a>
-        </nav>
+        <div className = "nav-container">
+            <div className="navbar-main">
+                <div className="nav-link">
+                    <strong>
+                        <span className="nav-link" id="add" onClick={props.add}>Add a task!</span>
+                    </strong>
+                </div>
+                <div className="nav-link  nav-right">
+                    <strong>
+                        <span href="https://github.com/PratikGarai/TodoV3" target="_blank" className="nav-link" id="add" onClick={props.add}>Go to code</span>
+                    </strong>
+                </div>
+            </div>
+        </div>       
     );
 }
 

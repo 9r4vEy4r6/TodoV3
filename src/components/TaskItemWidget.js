@@ -69,7 +69,18 @@ const TaskItemWidget = (props) =>{
     }, []);
 
     const setColors = (res) => {
-        if(res.priority===1)
+        if(res.isComplete)
+        {
+            setOuter({
+                backgroundColor : color[7],
+                borderColor : color[6],
+            });
+            setInner({
+                borderColor : color[6],
+                backgroundColor : color[8]
+            });
+        }
+        else if(res.priority===1)
         {
             setOuter({
                 backgroundColor : color[3],

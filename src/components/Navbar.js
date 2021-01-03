@@ -8,7 +8,7 @@ const Navbar = (props) => {
             <div className="navbar-main">
                 <div className="nav-link">
                     <strong>
-                        <span className="nav-link" id="add" onClick={props.add}>Add a task!</span>
+                        <span className="nav-link" id="add" onClick={props.add}>Create task</span>
                     </strong>
                 </div>
                 <div className="nav-link  nav-right">

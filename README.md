@@ -11,4 +11,4 @@ A Todo App using ReactJs which is synced with a server. The backend is located <
 3. Data is always completely synced with the backend server.<br>
 
 <h3> Screenshot : </h3>
-![Screenshot](https://github.com/PratikGarai/TodoV3/blob/master/Images/screenshot.png)
+<img src="https://github.com/PratikGarai/TodoV3/blob/master/Images/screenshot.png"></img>

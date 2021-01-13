@@ -9,3 +9,6 @@ A Todo App using ReactJs which is synced with a server. The backend is located <
 1. Add todos and mark them as done or undone.<br>
 2. Color scheme based on priority and completion.<br>
 3. Data is always completely synced with the backend server.<br>
+
+<h3> Screenshot : </h3>
+![Screenshot](https://github.com/PratikGarai/TodoV3/blob/master/Images/screenshot.png)
